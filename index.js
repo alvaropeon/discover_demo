@@ -11,9 +11,9 @@ var client = new havenondemand.HODClient(process.env.HOD_APIKEY)
 
 var port = process.env.PORT || 5000
 
-//
-// '/index' route
-//
+app.get('/', function(req, res) {
+  res.sendFile(path.join(__dirname, 'index.html'))
+})
 
 //
 // '/processing' route
