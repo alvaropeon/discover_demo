@@ -64,12 +64,14 @@ function createConceptsFrequencyList(concepts, callback) {
   var frequencyList = [];
   // console.log(concepts);
   for (var i=0; i<concepts.length; i++) {
-    console.log(i);
     var text = concepts[i].concept;
     var weight = concepts[i].occurrences;
     var numWords = text.split(' ').length
-    if (numWords < 4) {
-      frequencyList.push({"text": text, "weight": weight, "html": {"data-toggle": "popover", "data-original-title": text, "data-trigger": "hover", "rel": "popover", "data-content": "occurrences: "+weight}});
+    var numCharacters = text.split('').length
+    if (numCharacters > 1) {
+      if (numWords < 4) {
+        frequencyList.push({"text": text, "weight": weight, "html": {"data-toggle": "popover", "data-original-title": text, "data-trigger": "hover", "rel": "popover", "data-content": "occurrences: "+weight}});
+      }
     }
   }
   // console.log(frequencyList)
