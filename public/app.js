@@ -123,3 +123,9 @@ function createSentimentsFrequencyList(sentiments, callback) {
 }
 
 $('#about').colorbox({href:"./about", opacity: "1",  height: '20%', width: '40%'});
+
+$("#url").keyup(function(event){
+    if(event.keyCode == 13){
+        $("#submit").click();
+    }
+});
