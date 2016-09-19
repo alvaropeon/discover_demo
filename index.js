@@ -7,7 +7,25 @@ var app = express()
 app.use(express.static(path.join(__dirname, 'public')))
 
 var havenondemand = require('havenondemand')
-var client = new havenondemand.HODClient(process.env.HOD_APIKEY)
+
+var HOD_API_KEY = "key"
+
+try {
+  var vcap_services = JSON.parse(process.env.VCAP_SERVICES)
+  HOD_API_KEY =  vcap_services['hod-demo'][0].credentials.HOD_API_KEY
+
+  console.log('Key: ' + HOD_API_KEY)
+} catch (e) {
+  console.log('Error: HOD Service not found')
+  console.log(e)
+} finally {
+
+}
+
+var client = new havenondemand.HODClient(HOD_API_KEY)
+
+//var client = new havenondemand.HODClient("be3cc18c-fc74-4e03-a730-35aca378cb8a")
+//var client = new havenondemand.HODClient(process.env.HOD_APIKEY)
 
 var port = process.env.PORT || 5000
 
