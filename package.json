@@ -12,5 +12,9 @@
     "dotenv": "^2.0.0",
     "express": "^4.13.4",
     "havenondemand": "^1.2.0"
+  },
+  "devDependencies": {
+    "mocha": "^3.0.2",
+    "should": "^11.1.0"
   }
 }
