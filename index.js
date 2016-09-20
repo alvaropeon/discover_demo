@@ -24,7 +24,6 @@ try {
 
 var client = new havenondemand.HODClient(HOD_API_KEY)
 
-//var client = new havenondemand.HODClient("be3cc18c-fc74-4e03-a730-35aca378cb8a")
 //var client = new havenondemand.HODClient(process.env.HOD_APIKEY)
 
 var port = process.env.PORT || 5000
